@@ -7,6 +7,7 @@ import (
 
 	"github.com/alecthomas/kingpin/v2"
 	"github.com/millyleadley/roastadvisor/lib/log"
+	"github.com/millyleadley/roastadvisor/lib/router"
 	"github.com/spf13/viper"
 )
 
@@ -27,6 +28,9 @@ func main() {
 	loadConfig(*env)
 	test := viper.Get("test")
 	log.Info("Loaded test value from config file", map[string]interface{}{"test": test})
+
+	// Start the router - this should always be last because it blocks the main thread.
+	router.Start()
 }
 
 func loadConfig(env string) {
