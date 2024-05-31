@@ -1,11 +1,12 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/alecthomas/kingpin/v2"
+	"github.com/millyleadley/roastadvisor/lib/log"
 	"github.com/spf13/viper"
 )
 
@@ -17,10 +18,15 @@ var (
 func main() {
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
-	loadConfig(*env)
+	// Create a context that can be cancelled.
+	ctx := context.Background()
+	ctx, cancel := context.WithCancel(ctx)
+	defer cancel()
 
+	// Load the config file, which means we can access secrets throughout the app.
+	loadConfig(*env)
 	test := viper.Get("test")
-	fmt.Println(test)
+	log.Info("Loaded test value from config file", map[string]interface{}{"test": test})
 }
 
 func loadConfig(env string) {
@@ -30,6 +36,6 @@ func loadConfig(env string) {
 	viper.AddConfigPath("config/hidden")
 
 	if err := viper.ReadInConfig(); err != nil {
-		log.Fatalf("Error reading config file, %s", err)
+		log.Error("Error reading config file", err)
 	}
 }
