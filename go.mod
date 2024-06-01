@@ -4,6 +4,11 @@ go 1.22.1
 
 require (
 	github.com/alecthomas/kingpin/v2 v2.4.0
+	github.com/getsentry/sentry-go v0.28.0
+	github.com/gin-gonic/gin v1.10.0
+	github.com/pkg/errors v0.9.1
+	github.com/samber/lo v1.39.0
+	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/viper v1.18.2
 )
 
@@ -16,7 +21,6 @@ require (
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.10.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.20.0 // indirect
@@ -33,7 +37,6 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.2 // indirect
 	github.com/sagikazarmark/locafero v0.4.0 // indirect
 	github.com/sagikazarmark/slog-shim v0.1.0 // indirect
-	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spf13/afero v1.11.0 // indirect
 	github.com/spf13/cast v1.6.0 // indirect

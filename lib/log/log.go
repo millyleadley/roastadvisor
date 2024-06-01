@@ -3,6 +3,7 @@ package log
 // A thin wrapper around logrus.
 
 import (
+	"github.com/getsentry/sentry-go"
 	"github.com/sirupsen/logrus"
 )
 
@@ -17,23 +18,26 @@ func init() {
 }
 
 func Info(msg string, params ...map[string]interface{}) {
-	logger.WithFields(paramsToFields(params)).Info(msg)
+	loggerWithMetadata(params).Info(msg)
 }
 
-func Warn(msg string, err error, params ...map[string]interface{}) {
-	logger.WithFields(paramsToFields(params)).WithError(err).Warn(msg)
+func Warn(err error, params ...map[string]interface{}) {
+	sendToSentry(err, sentry.LevelWarning, params...)
+	loggerWithMetadata(params).WithError(err).Warn()
 }
 
-func Error(msg string, err error, params ...map[string]interface{}) {
-	logger.WithFields(paramsToFields(params)).WithError(err).Error(msg)
+func Error(err error, params ...map[string]interface{}) {
+	sendToSentry(err, sentry.LevelError, params...)
+	loggerWithMetadata(params).WithError(err).Error()
 }
 
-func paramsToFields(params []map[string]interface{}) logrus.Fields {
+// loggerWithMetadata returns a logrus logger with the params as fields.
+func loggerWithMetadata(params []map[string]interface{}) *logrus.Entry {
 	fields := logrus.Fields{}
 	for _, param := range params {
 		for key, value := range param {
 			fields[key] = value
 		}
 	}
-	return fields
+	return logger.WithFields(fields)
 }

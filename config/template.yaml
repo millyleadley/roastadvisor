@@ -1,1 +1,2 @@
-test: "REPLACE ME"
+env: "REPLACE ME"
+sentry.dsn: "REPLACE ME"
