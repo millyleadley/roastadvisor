@@ -44,22 +44,22 @@ const docTemplate = `{
                     "type": "string"
                 },
                 "commentAddOns": {
-                    "$ref": "#/definitions/null.String"
+                    "type": "string"
                 },
                 "commentMeat": {
-                    "$ref": "#/definitions/null.String"
+                    "type": "string"
                 },
                 "commentPotatoes": {
-                    "$ref": "#/definitions/null.String"
+                    "type": "string"
                 },
                 "commentPrice": {
-                    "$ref": "#/definitions/null.String"
+                    "type": "string"
                 },
                 "commentSize": {
-                    "$ref": "#/definitions/null.String"
+                    "type": "string"
                 },
                 "commentVeg": {
-                    "$ref": "#/definitions/null.String"
+                    "type": "string"
                 },
                 "createdAt": {
                     "type": "string"
@@ -93,18 +93,6 @@ const docTemplate = `{
                 },
                 "userID": {
                     "type": "string"
-                }
-            }
-        },
-        "null.String": {
-            "type": "object",
-            "properties": {
-                "string": {
-                    "type": "string"
-                },
-                "valid": {
-                    "description": "Valid is true if String is not NULL",
-                    "type": "boolean"
                 }
             }
         }

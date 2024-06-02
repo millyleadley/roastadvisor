@@ -13,13 +13,6 @@
  */
 
 import { mapValues } from '../runtime';
-import type { NullString } from './NullString';
-import {
-    NullStringFromJSON,
-    NullStringFromJSONTyped,
-    NullStringToJSON,
-} from './NullString';
-
 /**
  * 
  * @export
@@ -34,40 +27,40 @@ export interface DomainReview {
     archivedAt?: string;
     /**
      * 
-     * @type {NullString}
+     * @type {string}
      * @memberof DomainReview
      */
-    commentAddOns?: NullString;
+    commentAddOns?: string;
     /**
      * 
-     * @type {NullString}
+     * @type {string}
      * @memberof DomainReview
      */
-    commentMeat?: NullString;
+    commentMeat?: string;
     /**
      * 
-     * @type {NullString}
+     * @type {string}
      * @memberof DomainReview
      */
-    commentPotatoes?: NullString;
+    commentPotatoes?: string;
     /**
      * 
-     * @type {NullString}
+     * @type {string}
      * @memberof DomainReview
      */
-    commentPrice?: NullString;
+    commentPrice?: string;
     /**
      * 
-     * @type {NullString}
+     * @type {string}
      * @memberof DomainReview
      */
-    commentSize?: NullString;
+    commentSize?: string;
     /**
      * 
-     * @type {NullString}
+     * @type {string}
      * @memberof DomainReview
      */
-    commentVeg?: NullString;
+    commentVeg?: string;
     /**
      * 
      * @type {string}
@@ -154,12 +147,12 @@ export function DomainReviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return {
         
         'archivedAt': json['archivedAt'] == null ? undefined : json['archivedAt'],
-        'commentAddOns': json['commentAddOns'] == null ? undefined : NullStringFromJSON(json['commentAddOns']),
-        'commentMeat': json['commentMeat'] == null ? undefined : NullStringFromJSON(json['commentMeat']),
-        'commentPotatoes': json['commentPotatoes'] == null ? undefined : NullStringFromJSON(json['commentPotatoes']),
-        'commentPrice': json['commentPrice'] == null ? undefined : NullStringFromJSON(json['commentPrice']),
-        'commentSize': json['commentSize'] == null ? undefined : NullStringFromJSON(json['commentSize']),
-        'commentVeg': json['commentVeg'] == null ? undefined : NullStringFromJSON(json['commentVeg']),
+        'commentAddOns': json['commentAddOns'] == null ? undefined : json['commentAddOns'],
+        'commentMeat': json['commentMeat'] == null ? undefined : json['commentMeat'],
+        'commentPotatoes': json['commentPotatoes'] == null ? undefined : json['commentPotatoes'],
+        'commentPrice': json['commentPrice'] == null ? undefined : json['commentPrice'],
+        'commentSize': json['commentSize'] == null ? undefined : json['commentSize'],
+        'commentVeg': json['commentVeg'] == null ? undefined : json['commentVeg'],
         'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
         'id': json['id'] == null ? undefined : json['id'],
         'ratingAddOns': json['ratingAddOns'] == null ? undefined : json['ratingAddOns'],
@@ -181,12 +174,12 @@ export function DomainReviewToJSON(value?: DomainReview | null): any {
     return {
         
         'archivedAt': value['archivedAt'],
-        'commentAddOns': NullStringToJSON(value['commentAddOns']),
-        'commentMeat': NullStringToJSON(value['commentMeat']),
-        'commentPotatoes': NullStringToJSON(value['commentPotatoes']),
-        'commentPrice': NullStringToJSON(value['commentPrice']),
-        'commentSize': NullStringToJSON(value['commentSize']),
-        'commentVeg': NullStringToJSON(value['commentVeg']),
+        'commentAddOns': value['commentAddOns'],
+        'commentMeat': value['commentMeat'],
+        'commentPotatoes': value['commentPotatoes'],
+        'commentPrice': value['commentPrice'],
+        'commentSize': value['commentSize'],
+        'commentVeg': value['commentVeg'],
         'createdAt': value['createdAt'],
         'id': value['id'],
         'ratingAddOns': value['ratingAddOns'],

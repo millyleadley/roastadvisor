@@ -1,0 +1,2 @@
+// Replace all null.String with string
+replace null.String string
