@@ -5,7 +5,12 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
-	"github.com/millyleadley/roastadvisor/lib/router/api"
+	"github.com/millyleadley/roastadvisor/app/api"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+
+	// Need this to find the swagger docs
+	_ "github.com/millyleadley/roastadvisor/docs"
 )
 
 func Start(ctx context.Context, db *sqlx.DB) {
@@ -14,6 +19,9 @@ func Start(ctx context.Context, db *sqlx.DB) {
 	// TODO: Apply middlewares
 	// https://github.com/gin-gonic/contrib?tab=readme-ov-file
 	// router.Use(middlewares.GinLogger())
+
+	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json")
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	// Health check
 	router.GET("/health", func(c *gin.Context) {

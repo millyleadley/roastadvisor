@@ -1,0 +1,65 @@
+definitions:
+  domain.Review:
+    properties:
+      archivedAt:
+        type: string
+      commentAddOns:
+        $ref: '#/definitions/null.String'
+      commentMeat:
+        $ref: '#/definitions/null.String'
+      commentPotatoes:
+        $ref: '#/definitions/null.String'
+      commentPrice:
+        $ref: '#/definitions/null.String'
+      commentSize:
+        $ref: '#/definitions/null.String'
+      commentVeg:
+        $ref: '#/definitions/null.String'
+      createdAt:
+        type: string
+      id:
+        type: string
+      ratingAddOns:
+        type: integer
+      ratingMeat:
+        type: integer
+      ratingPotatoes:
+        type: integer
+      ratingPrice:
+        type: integer
+      ratingSize:
+        type: integer
+      ratingVeg:
+        type: integer
+      restaurantID:
+        type: string
+      updatedAt:
+        type: string
+      userID:
+        type: string
+    type: object
+  null.String:
+    properties:
+      string:
+        type: string
+      valid:
+        description: Valid is true if String is not NULL
+        type: boolean
+    type: object
+info:
+  contact: {}
+paths:
+  /reviews:
+    get:
+      description: Responds with the list of all reviews as JSON.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/domain.Review'
+            type: array
+      summary: Get array of reviews
+swagger: "2.0"

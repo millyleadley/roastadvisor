@@ -7,6 +7,11 @@ import (
 	"github.com/millyleadley/roastadvisor/pkg/domain"
 )
 
+// @Summary      Get array of reviews
+// @Description  Responds with the list of all reviews as JSON.
+// @Produce      json
+// @Success      200  {array}  domain.Review
+// @Router       /reviews [get]
 func GetReviews(db *sqlx.DB) func(c *gin.Context) {
 	return func(c *gin.Context) {
 		reviews := []domain.Review{}

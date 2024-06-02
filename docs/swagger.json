@@ -1,0 +1,101 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "contact": {}
+    },
+    "paths": {
+        "/reviews": {
+            "get": {
+                "description": "Responds with the list of all reviews as JSON.",
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "Get array of reviews",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/domain.Review"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "domain.Review": {
+            "type": "object",
+            "properties": {
+                "archivedAt": {
+                    "type": "string"
+                },
+                "commentAddOns": {
+                    "$ref": "#/definitions/null.String"
+                },
+                "commentMeat": {
+                    "$ref": "#/definitions/null.String"
+                },
+                "commentPotatoes": {
+                    "$ref": "#/definitions/null.String"
+                },
+                "commentPrice": {
+                    "$ref": "#/definitions/null.String"
+                },
+                "commentSize": {
+                    "$ref": "#/definitions/null.String"
+                },
+                "commentVeg": {
+                    "$ref": "#/definitions/null.String"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "ratingAddOns": {
+                    "type": "integer"
+                },
+                "ratingMeat": {
+                    "type": "integer"
+                },
+                "ratingPotatoes": {
+                    "type": "integer"
+                },
+                "ratingPrice": {
+                    "type": "integer"
+                },
+                "ratingSize": {
+                    "type": "integer"
+                },
+                "ratingVeg": {
+                    "type": "integer"
+                },
+                "restaurantID": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                },
+                "userID": {
+                    "type": "string"
+                }
+            }
+        },
+        "null.String": {
+            "type": "object",
+            "properties": {
+                "string": {
+                    "type": "string"
+                },
+                "valid": {
+                    "description": "Valid is true if String is not NULL",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}
