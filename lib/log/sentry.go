@@ -13,6 +13,9 @@ const (
 
 // sendToSentry sends an error to Sentry.
 func sendToSentry(err error, level sentry.Level, params ...map[string]interface{}) {
+	// Whilst we're in dev, let's not do this.
+	return
+
 	if err != nil {
 		hub := sentry.CurrentHub()
 
