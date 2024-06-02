@@ -23,6 +23,7 @@ var (
 	configFile = app.Flag("config-file", "Which config file to use").Default("dev").Enum("dev", "prod")
 )
 
+// @title Roast Advisor API
 func main() {
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 

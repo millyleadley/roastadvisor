@@ -48,6 +48,7 @@ definitions:
     type: object
 info:
   contact: {}
+  title: Roast Advisor API
 paths:
   /reviews:
     get:
