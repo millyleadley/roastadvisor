@@ -8,9 +8,9 @@ import (
 
 type User struct {
 	ID       string      `db:"id"`
-	Username null.String `db:"username"`
+	Username null.String `db:"username" validate:"optional"`
 
 	CreatedAt  time.Time `db:"created_at"`
 	UpdatedAt  time.Time `db:"updated_at"`
-	ArchivedAt null.Time `db:"archived_at"`
+	ArchivedAt null.Time `db:"archived_at" validate:"optional"`
 }

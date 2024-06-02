@@ -66,73 +66,84 @@ export interface DomainReview {
      * @type {string}
      * @memberof DomainReview
      */
-    createdAt?: string;
+    createdAt: string;
     /**
      * 
      * @type {string}
      * @memberof DomainReview
      */
-    id?: string;
+    id: string;
     /**
      * 
      * @type {number}
      * @memberof DomainReview
      */
-    ratingAddOns?: number;
+    ratingAddOns: number;
     /**
      * 
      * @type {number}
      * @memberof DomainReview
      */
-    ratingMeat?: number;
+    ratingMeat: number;
     /**
      * 
      * @type {number}
      * @memberof DomainReview
      */
-    ratingPotatoes?: number;
+    ratingPotatoes: number;
     /**
      * 
      * @type {number}
      * @memberof DomainReview
      */
-    ratingPrice?: number;
+    ratingPrice: number;
     /**
      * 
      * @type {number}
      * @memberof DomainReview
      */
-    ratingSize?: number;
+    ratingSize: number;
     /**
      * 
      * @type {number}
      * @memberof DomainReview
      */
-    ratingVeg?: number;
+    ratingVeg: number;
     /**
      * 
      * @type {string}
      * @memberof DomainReview
      */
-    restaurantID?: string;
+    restaurantID: string;
     /**
      * 
      * @type {string}
      * @memberof DomainReview
      */
-    updatedAt?: string;
+    updatedAt: string;
     /**
      * 
      * @type {string}
      * @memberof DomainReview
      */
-    userID?: string;
+    userID: string;
 }
 
 /**
  * Check if a given object implements the DomainReview interface.
  */
 export function instanceOfDomainReview(value: object): value is DomainReview {
+    if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
+    if (!('id' in value) || value['id'] === undefined) return false;
+    if (!('ratingAddOns' in value) || value['ratingAddOns'] === undefined) return false;
+    if (!('ratingMeat' in value) || value['ratingMeat'] === undefined) return false;
+    if (!('ratingPotatoes' in value) || value['ratingPotatoes'] === undefined) return false;
+    if (!('ratingPrice' in value) || value['ratingPrice'] === undefined) return false;
+    if (!('ratingSize' in value) || value['ratingSize'] === undefined) return false;
+    if (!('ratingVeg' in value) || value['ratingVeg'] === undefined) return false;
+    if (!('restaurantID' in value) || value['restaurantID'] === undefined) return false;
+    if (!('updatedAt' in value) || value['updatedAt'] === undefined) return false;
+    if (!('userID' in value) || value['userID'] === undefined) return false;
     return true;
 }
 
@@ -153,17 +164,17 @@ export function DomainReviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'commentPrice': json['commentPrice'] == null ? undefined : json['commentPrice'],
         'commentSize': json['commentSize'] == null ? undefined : json['commentSize'],
         'commentVeg': json['commentVeg'] == null ? undefined : json['commentVeg'],
-        'createdAt': json['createdAt'] == null ? undefined : json['createdAt'],
-        'id': json['id'] == null ? undefined : json['id'],
-        'ratingAddOns': json['ratingAddOns'] == null ? undefined : json['ratingAddOns'],
-        'ratingMeat': json['ratingMeat'] == null ? undefined : json['ratingMeat'],
-        'ratingPotatoes': json['ratingPotatoes'] == null ? undefined : json['ratingPotatoes'],
-        'ratingPrice': json['ratingPrice'] == null ? undefined : json['ratingPrice'],
-        'ratingSize': json['ratingSize'] == null ? undefined : json['ratingSize'],
-        'ratingVeg': json['ratingVeg'] == null ? undefined : json['ratingVeg'],
-        'restaurantID': json['restaurantID'] == null ? undefined : json['restaurantID'],
-        'updatedAt': json['updatedAt'] == null ? undefined : json['updatedAt'],
-        'userID': json['userID'] == null ? undefined : json['userID'],
+        'createdAt': json['createdAt'],
+        'id': json['id'],
+        'ratingAddOns': json['ratingAddOns'],
+        'ratingMeat': json['ratingMeat'],
+        'ratingPotatoes': json['ratingPotatoes'],
+        'ratingPrice': json['ratingPrice'],
+        'ratingSize': json['ratingSize'],
+        'ratingVeg': json['ratingVeg'],
+        'restaurantID': json['restaurantID'],
+        'updatedAt': json['updatedAt'],
+        'userID': json['userID'],
     };
 }
 

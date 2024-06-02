@@ -37,6 +37,18 @@ definitions:
         type: string
       userID:
         type: string
+    required:
+    - createdAt
+    - id
+    - ratingAddOns
+    - ratingMeat
+    - ratingPotatoes
+    - ratingPrice
+    - ratingSize
+    - ratingVeg
+    - restaurantID
+    - updatedAt
+    - userID
     type: object
 info:
   contact: {}

@@ -33,7 +33,11 @@ func main() {
 	defer cancel()
 
 	// Load the config file, which means we can access secrets throughout the app.
-	loadConfig(*configFile)
+	err := loadConfig(*configFile)
+	if err != nil {
+		log.Error(errors.Wrap(err, "loading config"))
+		return
+	}
 
 	// Connect to the db.
 	dataSourceName := fmt.Sprintf("user=%s password=%s dbname=postgres sslmode=disable", viper.GetString("db.user"), viper.GetString("db.password"))
@@ -65,12 +69,14 @@ func main() {
 	router.Start(ctx, db)
 }
 
-func loadConfig(env string) {
+func loadConfig(env string) error {
 	viper.SetConfigName(env)
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath("config/hidden")
 
 	if err := viper.ReadInConfig(); err != nil {
-		log.Error(errors.Wrap(err, "reading config file"))
+		return errors.Wrap(err, "reading config file")
 	}
+
+	return nil
 }

@@ -39,6 +39,19 @@ const docTemplate = `{
     "definitions": {
         "domain.Review": {
             "type": "object",
+            "required": [
+                "createdAt",
+                "id",
+                "ratingAddOns",
+                "ratingMeat",
+                "ratingPotatoes",
+                "ratingPrice",
+                "ratingSize",
+                "ratingVeg",
+                "restaurantID",
+                "updatedAt",
+                "userID"
+            ],
             "properties": {
                 "archivedAt": {
                     "type": "string"

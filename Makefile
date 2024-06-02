@@ -1,8 +1,8 @@
-build:
+run:
 	go build . && ./roastadvisor
 
 swagger:
-	swag init --overridesFile=.swaggo
+	swag init --requiredByDefault
 
 gen:
 	openapi-generator generate -i docs/swagger.json -g typescript-fetch -o client/gen
