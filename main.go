@@ -8,10 +8,14 @@ import (
 
 	"github.com/alecthomas/kingpin/v2"
 	"github.com/getsentry/sentry-go"
+	"github.com/jmoiron/sqlx"
 	"github.com/millyleadley/roastadvisor/lib/log"
 	"github.com/millyleadley/roastadvisor/lib/router"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
+
+	// Import the postgres driver.
+	_ "github.com/lib/pq"
 )
 
 var (
@@ -29,6 +33,15 @@ func main() {
 
 	// Load the config file, which means we can access secrets throughout the app.
 	loadConfig(*configFile)
+
+	// Connect to the db.
+	dataSourceName := fmt.Sprintf("user=%s password=%s dbname=postgres sslmode=disable", viper.GetString("db.user"), viper.GetString("db.password"))
+	db, err := sqlx.Connect("postgres", dataSourceName)
+	if err != nil {
+		log.Error(errors.Wrap(err, "connecting to db"))
+		return
+	}
+	defer db.Close()
 
 	// Create the Sentry hub
 	sentryDSN := viper.GetString("sentry.dsn")
@@ -48,11 +61,10 @@ func main() {
 	}
 
 	// Start the router - this should always be last because it blocks the main thread.
-	router.Start()
+	router.Start(ctx, db)
 }
 
 func loadConfig(env string) {
-	fmt.Println("Loading config file for", env)
 	viper.SetConfigName(env)
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath("config/hidden")

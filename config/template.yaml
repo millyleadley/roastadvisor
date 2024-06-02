@@ -1,2 +1,4 @@
 env: "REPLACE ME"
 sentry.dsn: "REPLACE ME"
+db.user: "REPLACE ME"
+db.password: "REPLACE ME"
