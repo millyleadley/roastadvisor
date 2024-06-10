@@ -16,123 +16,123 @@ import { mapValues } from '../runtime';
 /**
  * 
  * @export
- * @interface DomainReview
+ * @interface Review
  */
-export interface DomainReview {
+export interface Review {
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     archivedAt?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     commentAddOns?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     commentMeat?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     commentPotatoes?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     commentPrice?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     commentSize?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     commentVeg?: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     createdAt: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     id: string;
     /**
      * 
      * @type {number}
-     * @memberof DomainReview
+     * @memberof Review
      */
     ratingAddOns: number;
     /**
      * 
      * @type {number}
-     * @memberof DomainReview
+     * @memberof Review
      */
     ratingMeat: number;
     /**
      * 
      * @type {number}
-     * @memberof DomainReview
+     * @memberof Review
      */
     ratingPotatoes: number;
     /**
      * 
      * @type {number}
-     * @memberof DomainReview
+     * @memberof Review
      */
     ratingPrice: number;
     /**
      * 
      * @type {number}
-     * @memberof DomainReview
+     * @memberof Review
      */
     ratingSize: number;
     /**
      * 
      * @type {number}
-     * @memberof DomainReview
+     * @memberof Review
      */
     ratingVeg: number;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     restaurantID: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     updatedAt: string;
     /**
      * 
      * @type {string}
-     * @memberof DomainReview
+     * @memberof Review
      */
     userID: string;
 }
 
 /**
- * Check if a given object implements the DomainReview interface.
+ * Check if a given object implements the Review interface.
  */
-export function instanceOfDomainReview(value: object): value is DomainReview {
+export function instanceOfReview(value: object): value is Review {
     if (!('createdAt' in value) || value['createdAt'] === undefined) return false;
     if (!('id' in value) || value['id'] === undefined) return false;
     if (!('ratingAddOns' in value) || value['ratingAddOns'] === undefined) return false;
@@ -147,11 +147,11 @@ export function instanceOfDomainReview(value: object): value is DomainReview {
     return true;
 }
 
-export function DomainReviewFromJSON(json: any): DomainReview {
-    return DomainReviewFromJSONTyped(json, false);
+export function ReviewFromJSON(json: any): Review {
+    return ReviewFromJSONTyped(json, false);
 }
 
-export function DomainReviewFromJSONTyped(json: any, ignoreDiscriminator: boolean): DomainReview {
+export function ReviewFromJSONTyped(json: any, ignoreDiscriminator: boolean): Review {
     if (json == null) {
         return json;
     }
@@ -178,7 +178,7 @@ export function DomainReviewFromJSONTyped(json: any, ignoreDiscriminator: boolea
     };
 }
 
-export function DomainReviewToJSON(value?: DomainReview | null): any {
+export function ReviewToJSON(value?: Review | null): any {
     if (value == null) {
         return value;
     }

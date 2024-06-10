@@ -1,5 +1,5 @@
 definitions:
-  domain.Review:
+  Review:
     properties:
       archivedAt:
         type: string
@@ -64,7 +64,7 @@ paths:
           description: OK
           schema:
             items:
-              $ref: '#/definitions/domain.Review'
+              $ref: '#/definitions/Review'
             type: array
       summary: Get array of reviews
 swagger: "2.0"

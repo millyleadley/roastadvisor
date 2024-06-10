@@ -15,11 +15,11 @@
 
 import * as runtime from '../runtime';
 import type {
-  DomainReview,
+  Review,
 } from '../models/index';
 import {
-    DomainReviewFromJSON,
-    DomainReviewToJSON,
+    ReviewFromJSON,
+    ReviewToJSON,
 } from '../models/index';
 
 /**
@@ -31,7 +31,7 @@ export class DefaultApi extends runtime.BaseAPI {
      * Responds with the list of all reviews as JSON.
      * Get array of reviews
      */
-    async reviewsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<DomainReview>>> {
+    async reviewsGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Array<Review>>> {
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -43,14 +43,14 @@ export class DefaultApi extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(DomainReviewFromJSON));
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(ReviewFromJSON));
     }
 
     /**
      * Responds with the list of all reviews as JSON.
      * Get array of reviews
      */
-    async reviewsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<DomainReview>> {
+    async reviewsGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Array<Review>> {
         const response = await this.reviewsGetRaw(initOverrides);
         return await response.value();
     }

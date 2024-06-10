@@ -21,6 +21,7 @@ func GetReviews(db *sqlx.DB) func(c *gin.Context) {
 			c.JSON(500, gin.H{
 				"message": "Internal server error",
 			})
+			return
 		}
 
 		c.JSON(200, reviews)

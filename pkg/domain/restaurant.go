@@ -20,4 +20,4 @@ type Restaurant struct {
 	CreatedAt  time.Time `db:"created_at"`
 	UpdatedAt  time.Time `db:"updated_at"`
 	ArchivedAt null.Time `db:"archived_at" validate:"optional"`
-}
+} // @name Restaurant

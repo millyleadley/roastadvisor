@@ -14,7 +14,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
 
-	// Import the postgres driver.
+	// Import the postgres driver, otherwise sqlx.Connect will fail.
 	_ "github.com/lib/pq"
 )
 

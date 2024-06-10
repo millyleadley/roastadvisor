@@ -18,7 +18,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/domain.Review"
+                                "$ref": "#/definitions/Review"
                             }
                         }
                     }
@@ -27,7 +27,7 @@
         }
     },
     "definitions": {
-        "domain.Review": {
+        "Review": {
             "type": "object",
             "required": [
                 "createdAt",

@@ -28,7 +28,7 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/domain.Review"
+                                "$ref": "#/definitions/Review"
                             }
                         }
                     }
@@ -37,7 +37,7 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "domain.Review": {
+        "Review": {
             "type": "object",
             "required": [
                 "createdAt",
