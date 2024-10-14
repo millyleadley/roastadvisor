@@ -38,6 +38,7 @@ func main() {
 		log.Error(errors.Wrap(err, "loading config"))
 		return
 	}
+	log.Info("Config loaded")
 
 	// Connect to the db.
 	dataSourceName := fmt.Sprintf("user=%s password=%s dbname=postgres sslmode=disable", viper.GetString("db.user"), viper.GetString("db.password"))
@@ -47,6 +48,7 @@ func main() {
 		return
 	}
 	defer db.Close()
+	log.Info("Connected to db")
 
 	// Create the Sentry hub
 	sentryDSN := viper.GetString("sentry.dsn")

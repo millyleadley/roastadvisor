@@ -20,7 +20,7 @@ func Start(ctx context.Context, db *sqlx.DB) {
 	// https://github.com/gin-gonic/contrib?tab=readme-ov-file
 	// router.Use(middlewares.GinLogger())
 
-	url := ginSwagger.URL("http://localhost:8080/swagger/doc.json")
+	url := ginSwagger.URL("http://localhost:8000/swagger/doc.json")
 	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
 
 	// Health check
@@ -31,5 +31,5 @@ func Start(ctx context.Context, db *sqlx.DB) {
 	router.GET("/reviews", api.GetReviews(db))
 
 	// Listen for requests
-	router.Run("localhost:8080")
+	router.Run("localhost:8000")
 }
