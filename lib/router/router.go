@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
-	"github.com/millyleadley/roastadvisor/app/api"
+	"github.com/millyleadley/roastadvisor/app"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 
@@ -28,7 +28,7 @@ func Start(ctx context.Context, db *sqlx.DB) {
 		c.String(200, "ok")
 	})
 
-	router.GET("/reviews", api.GetReviews(db))
+	router.GET("/reviews", app.GetReviews(db))
 
 	// Listen for requests
 	router.Run("localhost:8000")
