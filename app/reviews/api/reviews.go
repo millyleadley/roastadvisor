@@ -24,13 +24,13 @@ func NewReviews(db *sqlx.DB) pkgreviews.Service {
 
 // List all reviews.
 func (s *reviewssrvc) List(ctx context.Context) ([]*pkgreviews.Review, error) {
-	reviews := []domain.Review{}
-	err := s.db.Select(&reviews, "SELECT * FROM reviews")
+	reviews := []*domain.Review{}
+	err := s.db.Select(reviews, "SELECT * FROM reviews")
 	if err != nil {
 		return nil, errors.Wrap(ctx, err, "listing reviews")
 	}
 
-	seralized := lo.Map(reviews, func(item domain.Review, _ int) *pkgreviews.Review {
+	seralized := lo.Map(reviews, func(item *domain.Review, _ int) *pkgreviews.Review {
 		return serialize.Review(item)
 	})
 

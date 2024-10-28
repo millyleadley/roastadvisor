@@ -5,7 +5,7 @@ import (
 	"github.com/millyleadley/roastadvisor/pkg/domain"
 )
 
-func Review(review domain.Review) *pkgreviews.Review {
+func Review(review *domain.Review) *pkgreviews.Review {
 	return &pkgreviews.Review{
 		ID:           review.ID,
 		UserID:       review.UserID,
