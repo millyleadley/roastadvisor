@@ -1,4 +1,4 @@
-apis/DefaultApi.ts
+apis/ReviewsApi.ts
 apis/index.ts
 index.ts
 models/Review.ts

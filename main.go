@@ -30,6 +30,8 @@ var (
 )
 
 func main() {
+	log.Info("Starting app")
+
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
 	// Create a context that can be cancelled.

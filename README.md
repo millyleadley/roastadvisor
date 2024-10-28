@@ -5,7 +5,7 @@
 Start postgres
 
 ```
-brew services start postgresql@14
+make brew-start
 ```
 
 Compile the binary and run it
@@ -14,14 +14,14 @@ Compile the binary and run it
 make run
 ```
 
-Enter a psql shell
-
-```
-psql -U postgres -h localhost -d postgres
-```
-
 Stop postgres running after use
 
 ```
-brew services stop postgresql@14
+make brew-stop
+```
+
+To see the results of an endpoint:
+
+```
+http://localhost:8000/reviews
 ```
