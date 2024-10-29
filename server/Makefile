@@ -11,7 +11,7 @@ run:
 # gen generates the OpenAPI spec and then the TypeScript client code from that spec
 gen:
 	goa gen github.com/millyleadley/roastadvisor/api/design -o api	
-	openapi-generator generate -i api/gen/http/openapi3.json -g typescript-fetch -o client/gen
+	openapi-generator generate -i api/gen/http/openapi3.json -g typescript-fetch -o ../packages/api
 
 brew-start:
 	brew services start postgresql@14
