@@ -31,9 +31,9 @@ func EncodeListResponse(encoder func(context.Context, http.ResponseWriter) goaht
 // from a value of type *reviews.Review.
 func marshalReviewsReviewToReviewResponse(v *reviews.Review) *ReviewResponse {
 	res := &ReviewResponse{
-		ID:           v.ID,
-		UserID:       v.UserID,
-		RestaurantID: v.RestaurantID,
+		ID:      v.ID,
+		UserID:  v.UserID,
+		Comment: v.Comment,
 	}
 
 	return res

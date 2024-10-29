@@ -84,9 +84,9 @@ func DecodeListResponse(decoder func(*http.Response) goahttp.Decoder, restoreBod
 // *reviews.Review from a value of type *ReviewResponse.
 func unmarshalReviewResponseToReviewsReview(v *ReviewResponse) *reviews.Review {
 	res := &reviews.Review{
-		ID:           *v.ID,
-		UserID:       *v.UserID,
-		RestaurantID: *v.RestaurantID,
+		ID:      *v.ID,
+		UserID:  *v.UserID,
+		Comment: *v.Comment,
 	}
 
 	return res

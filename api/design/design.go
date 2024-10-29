@@ -36,8 +36,8 @@ var Review = Type("Review", func() {
 	Attribute("user_id", String, "ID of the user who left the review", func() {
 		Example("01G0J1EXE7AXZ2C93K61WBPYEH")
 	})
-	Attribute("restaurant_id", String, "ID of the restaurant the review is for", func() {
-		Example("01G0J1EXE7AXZ2C93K61WBPYEH")
+	Attribute("comment", String, "The comment associated with the review", func() {
+		Example("It was nice")
 	})
-	Required("id", "user_id", "restaurant_id")
+	Required("id", "user_id", "comment")
 })

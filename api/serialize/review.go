@@ -7,8 +7,7 @@ import (
 
 func Review(review *domain.Review) *pkgreviews.Review {
 	return &pkgreviews.Review{
-		ID:           review.ID,
-		UserID:       review.UserID,
-		RestaurantID: review.RestaurantID,
+		ID:     review.ID,
+		UserID: review.UserID,
 	}
 }

@@ -20,17 +20,17 @@ import { mapValues } from '../runtime';
  */
 export interface Review {
     /**
+     * The comment associated with the review
+     * @type {string}
+     * @memberof Review
+     */
+    comment: string;
+    /**
      * Unique internal ID of the incident debrief
      * @type {string}
      * @memberof Review
      */
     id: string;
-    /**
-     * ID of the restaurant the review is for
-     * @type {string}
-     * @memberof Review
-     */
-    restaurantId: string;
     /**
      * ID of the user who left the review
      * @type {string}
@@ -43,8 +43,8 @@ export interface Review {
  * Check if a given object implements the Review interface.
  */
 export function instanceOfReview(value: object): value is Review {
+    if (!('comment' in value) || value['comment'] === undefined) return false;
     if (!('id' in value) || value['id'] === undefined) return false;
-    if (!('restaurantId' in value) || value['restaurantId'] === undefined) return false;
     if (!('userId' in value) || value['userId'] === undefined) return false;
     return true;
 }
@@ -59,8 +59,8 @@ export function ReviewFromJSONTyped(json: any, ignoreDiscriminator: boolean): Re
     }
     return {
         
+        'comment': json['comment'],
         'id': json['id'],
-        'restaurantId': json['restaurant_id'],
         'userId': json['user_id'],
     };
 }
@@ -71,8 +71,8 @@ export function ReviewToJSON(value?: Review | null): any {
     }
     return {
         
+        'comment': value['comment'],
         'id': value['id'],
-        'restaurant_id': value['restaurantId'],
         'user_id': value['userId'],
     };
 }

@@ -21,8 +21,8 @@ type ReviewResponse struct {
 	ID string `form:"id" json:"id" xml:"id"`
 	// ID of the user who left the review
 	UserID string `form:"user_id" json:"user_id" xml:"user_id"`
-	// ID of the restaurant the review is for
-	RestaurantID string `form:"restaurant_id" json:"restaurant_id" xml:"restaurant_id"`
+	// The comment associated with the review
+	Comment string `form:"comment" json:"comment" xml:"comment"`
 }
 
 // NewListResponseBody builds the HTTP response body from the result of the

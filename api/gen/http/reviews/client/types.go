@@ -22,8 +22,8 @@ type ReviewResponse struct {
 	ID *string `form:"id,omitempty" json:"id,omitempty" xml:"id,omitempty"`
 	// ID of the user who left the review
 	UserID *string `form:"user_id,omitempty" json:"user_id,omitempty" xml:"user_id,omitempty"`
-	// ID of the restaurant the review is for
-	RestaurantID *string `form:"restaurant_id,omitempty" json:"restaurant_id,omitempty" xml:"restaurant_id,omitempty"`
+	// The comment associated with the review
+	Comment *string `form:"comment,omitempty" json:"comment,omitempty" xml:"comment,omitempty"`
 }
 
 // NewListReviewOK builds a "Reviews" service "List" endpoint result from a
@@ -45,8 +45,8 @@ func ValidateReviewResponse(body *ReviewResponse) (err error) {
 	if body.UserID == nil {
 		err = goa.MergeErrors(err, goa.MissingFieldError("user_id", "body"))
 	}
-	if body.RestaurantID == nil {
-		err = goa.MergeErrors(err, goa.MissingFieldError("restaurant_id", "body"))
+	if body.Comment == nil {
+		err = goa.MergeErrors(err, goa.MissingFieldError("comment", "body"))
 	}
 	return
 }

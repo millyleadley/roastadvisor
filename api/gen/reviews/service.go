@@ -38,6 +38,6 @@ type Review struct {
 	ID string
 	// ID of the user who left the review
 	UserID string
-	// ID of the restaurant the review is for
-	RestaurantID string
+	// The comment associated with the review
+	Comment string
 }
